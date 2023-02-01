@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Do1ao15 {
     public static void main(String[] args) {
         var input = new Scanner(System.in);
-        _9(1000);
+        _14(input);
     }
 //1. Faça um algoritmo que receba dois números e exiba o resultado da sua soma;
     static float sumResult(float a, float b) {
@@ -118,21 +118,66 @@ public class Do1ao15 {
                 "Valor com rendimento no mês que vem: " + (valor*rendimento)
         );
     }
-//10. A Loja Mamão com Açúcar está vendendo seus produtos em5(cinco)prestações sem juros. Faça um
+//10. A Loja Mamão com Açúcar está vendendo seus produtos em 5(cinco) prestações sem juros. Faça um
 //algoritmo que receba um valor de uma compra e mostre o valor das prestações;
-
+    static void _10(Scanner input) {
+        System.out.print("Escreva o valor total do produto: ");
+        var total = input.nextDouble();
+        System.out.printf("Cada prestação custará %.2f reais", total/5);
+    }
 //11. Faça um algoritmo que receba o preço de custo de um produto e mostre o valor de venda. Sabe-se que o
 //preço de custo receberá um acréscimo de acordo com um percentual informado pelo usuário;
-
-//12. O custo de um carro novo ao consumidoré a soma do custo de fábrica mais o percentual do distribuidor e
+    static float cálculoDeVenda(float custo, float percentual) {
+        return custo * ((1 + percentual)/100);
+    }
+    static void _11(Scanner input) {
+        System.out.print("Informe o preço de custo: ");
+        var custo = input.nextFloat();
+        System.out.print("Informe o percentual de acreéscimo: ");
+        var percentual = input.nextFloat();
+        System.out.print("O preço de venda é " + cálculoDeVenda(custo, percentual));
+    }
+//12. O custo de um carro novo ao consumidor é a soma do custo de fábrica mais o percentual do distribuidor e
 //dos impostos aplicados (primeiro os impostos são aplicados sobre o custo de fábrica, e depois o percentual
 //do distribuidor sobre o resultado). Supondo que o percentual do distribuidor seja de 28% e os impostos
 //45%, escreva um algoritmo que leia o custo de fábrica de um carro e informe o custo ao consumidor do
 //mesmo;
-
+    static void _12(Scanner input) {
+        System.out.print("Qual é o custo de fábrica? ");
+        var custoDeFábrica = input.nextDouble(); 
+        custoDeFábrica *= 1.45;
+        var custoDoDistribuidor = custoDeFábrica*1.28;
+        var custo = custoDeFábrica + custoDoDistribuidor;
+        System.out.print("O custo ao consumidor é " + custo);
+    }
 //13. Faça um algoritmo que receba um número e mostre uma mensagem caso este número seja maior que 10;
-
+    static void _13(Scanner input) {
+        System.out.print("Informe um número: ");
+        var numero = input.nextInt();
+        if(numero > 10) {
+            System.out.print("O número é maior que 10.");
+        }
+    }
 //14. Escreva um algoritmo que leia dois valores inteiro distintos e informe qual é o maior;
-
+    static void _14(Scanner input) {
+        System.out.print("Informe o valor de A: ");
+        var a = input.nextInt();
+        System.out.print("Informe o valor de B: ");
+        var b = input.nextInt();
+        if(a == b) {
+           System.out.print("A é igual a B.");
+        } else if(a > b) {
+            System.out.print("A é maior que B.");
+        } else {
+            System.out.print("B é maior que A.");
+        }
+    }
 //15. Faça um algoritmo que receba um número e diga se este número está no intervalo entre 100 e 200;
+    static void _15(Scanner input) {
+        System.out.print("Informe um número: ");
+        var número = input.nextDouble();
+        if(número > 100 && número < 200) {
+            System.out.print("O número  está no intervalo entre 100 e 200.");
+        }
+    } 
 }
