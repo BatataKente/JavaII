@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Do16Ao28 {
     public static void main(String[] args) {
         var input = new Scanner(System.in);
-        _24(input);
+        _26(input);
         input.close();
     }
 //16. Escreva um algoritmo que leia o nome e as três notas obtidas por um aluno durante o semestre. Calcular a
@@ -268,11 +268,11 @@ public class Do16Ao28 {
         } while(continuar);
         Consumer<Double> consume = a -> {
             if(a == 0) {
-                System.out.print("O número é " + a);
+                System.out.print(a + ": o número é zero.");
             } else if(a > 0) {
-                System.out.print("O número é positivo");
+                System.out.print(a + ": o número é positivo.");
             } else {
-                System.out.print("O número é negativo");
+                System.out.print(a + ": o número é negativo.");
             }
             System.out.println();
         };
@@ -281,13 +281,34 @@ public class Do16Ao28 {
 //25. Faça um algoritmo que leia dois números e identifique se são iguais ou diferentes. Caso eles sejam iguais
 //imprima uma mensagem dizendo que eles são iguais. Caso sejam diferentes, informe qual número é o
 //maior, e uma mensagem que são diferentes;
+    static void _25(Scanner input) {
+        System.out.print("Informe o número A: ");
+        var a = input.nextInt();
+        System.out.print("Informe o número B: ");
+        var b = input.nextInt();
+        if(a == b) {
+           System.out.print("A e B são iguais.");
+        } else {
+           System.out.print("A e B são diferentes.");
+           System.out.print(a > b ? " A é maior que B." : " B é maior que A.");
+        }
+    }
 //26. Faça um algoritmo que leia um número de 1 a 5 e escreva por extenso. Caso o usuário digite um número
 //que não esteja neste intervalo, exibir a seguinte mensagem: número inválido;
+    static void _26(Scanner input) {
+        System.out.print("Escreva um número de 1 a 5: ");
+        var número = input.nextDouble();
+        if(!(número >= 1 && número <= 5)) System.out.print("Número inválido");
+//        System.out.print(número >= 1 && número <= 5? "Número válido" : "Número inválido");
+    }
 //27. A concessionária de veículos “CARANGO” está vendendo os seus veículos com desconto. Faça um
 //algoritmo que calcule e exiba o valor do desconto e o valor a ser pago pelo cliente. O desconto deverá ser 
 //calculado sobre o valor do veículo de acordo com o combustível (álcool – 25%, gasolina – 21% ou diesel
 //–14%). Com valor do veículo zero encerra entrada de dados. Informe total de desconto e total pago pelos
 //clientes;
+    static void _27(Scanner input) {
+    
+    }
 //28. Escreva um algoritmo para uma empresa que decide dar um reajuste a seus 584 funcionários de acordo
 //com os seguintes critérios:
 //a. 50% para aqueles que ganham menos do que três salários mínimos;
