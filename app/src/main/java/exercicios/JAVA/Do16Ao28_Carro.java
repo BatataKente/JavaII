@@ -7,6 +7,7 @@ public class Do16Ao28_Carro {
         double preço;
         final String tipoDeCombustível, modelo;
         final Supplier<Double> preçoComDesconto = () -> preço*getDesconto();
+        private boolean vendido = false;
         Do16Ao28_Carro (int ano, double preço) {
             this.ano = ano;
             this.preço = preço;
@@ -24,10 +25,16 @@ public class Do16Ao28_Carro {
             if(tipoDeCombustível.equalsIgnoreCase("D")) return 1 - 0.14;
             return 1.0;
         };
+        String getStatus() {
+            return toString() + "; Vendido: " + (vendido? "Sim": "Não");
+        }
+        void setVendido(boolean vendido) {
+            this.vendido = vendido;
+        }
         @Override public String toString() {
             return String.format(
                     "Modelo: %s; Preço: %.2f; Preço + desconto: %.2f", 
                     modelo, preço, preçoComDesconto.get()
             );
         }
-    }
+}
