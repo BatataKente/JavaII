@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Do16Ao28 {
     public static void main(String[] args) {
         var input = new Scanner(System.in);
-        _20(input);
+        _28();
         input.close();
     }
 //16. Escreva um algoritmo que leia o nome e as três notas obtidas por um aluno durante o semestre. Calcular a
@@ -359,4 +360,29 @@ public class Do16Ao28 {
 //b. 20% para aqueles que ganham entre três até dez salários mínimos;
 //c. 15% para aqueles que ganham acima de dez até vinte salários mínimos;
 //d. 10% para os demais funcionários.
+    static Do16Ao28_Funcionário[] createFuncionários(int quantidadeDeFuncionários) {
+        var funcionários = new Do16Ao28_Funcionário[quantidadeDeFuncionários];
+        for(int counter = 0; counter < funcionários.length; counter++) {
+            funcionários[counter] = new Do16Ao28_Funcionário();
+        }
+        return funcionários;
+    }
+    static void _28() {
+        _28(584);
+    }
+    static void _28(int quantidadeDeFuncionários) {
+        var funcionários = createFuncionários(quantidadeDeFuncionários);
+        Function<Do16Ao28_Funcionário, Do16Ao28_Funcionário> mapper = a -> {
+            if(a.getSalário() < (1300*3)) {
+                a.reajustarSalário(1.5);
+            } else if(a.getSalário() < (1300*10)) {
+                a.reajustarSalário(1.2);
+            } else if(a.getSalário() < (1300*20)) {
+                a.reajustarSalário(1.15);
+            } else {
+                a.reajustarSalário(1.1);
+            }
+            return a;
+        };
+    }
 }
