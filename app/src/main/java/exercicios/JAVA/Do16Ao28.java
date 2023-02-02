@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Do16Ao28 {
     public static void main(String[] args) {
         var input = new Scanner(System.in);
-        _26(input);
+        _20(input);
         input.close();
     }
 //16. Escreva um algoritmo que leia o nome e as três notas obtidas por um aluno durante o semestre. Calcular a
@@ -119,12 +119,12 @@ public class Do16Ao28 {
 //desconto deverá ser calculado de acordo com o ano do veículo. Até 2000 - 12% e acima de 2000 - 7%. O
 //sistema deverá perguntar se deseja continuar calculando desconto até que a resposta seja: “(N) Não”.
 //Informar total de carros com ano até 2000 e total geral;
-    static void calculateAndShowValorDoAutomóvel(float valorDoAutomóvel, float anoDoAutomóvel) {
-            if(anoDoAutomóvel > 2000) {
-                var valorFinalDoAutomóvel = valorDoAutomóvel*(1 - 0.07);
+    static void calculateAndShowValorDoAutomóvel(Do16Ao28_Carro carro) {
+            if(carro.ano > 2000) {
+                var valorFinalDoAutomóvel = carro.preço*(1 - 0.07);
                 System.out.printf("O Automóvel com desconto custará %.2f R$\n", valorFinalDoAutomóvel);
-            } else if(anoDoAutomóvel > 0) {
-                var valorFinalDoAutomóvel = valorDoAutomóvel*(1 - 0.12);
+            } else if(carro.ano > 0) {
+                var valorFinalDoAutomóvel = carro.preço*(1 - 0.12);
                 System.out.printf("O Automóvel com desconto custará %.2f R$\n", valorFinalDoAutomóvel);
             } else {
                 System.out.print("O ano do automóvel deve ser um valor positivo.\n");
@@ -146,16 +146,24 @@ public class Do16Ao28 {
     }
     static void _20(Scanner input) {
         var continuar = true;
+        var carros = new ArrayList<Do16Ao28_Carro>();
         do {
             System.out.print(
                 "Doncessionária de veículos \"CARANGO VELHO\". ;)\nDigite o valor do automóvel: "
             );
-            float valorDoAutomóvel = input.nextFloat();
+            float preço = input.nextFloat();
             System.out.print("Agora digite o ano do automóvel: ");
-            var anoDoAutomóvel = input.nextInt();
-            calculateAndShowValorDoAutomóvel(valorDoAutomóvel, anoDoAutomóvel);
+            var ano = input.nextInt();
+            var carro = new Do16Ao28_Carro(ano, preço);
+            calculateAndShowValorDoAutomóvel(carro);
+            carros.add(carro);
             continuar = doYouDesireToProceed(input);
         } while(continuar);
+        var totalDeCarrosSemiNovos = carros.stream()
+                .filter(a -> a.ano<=2000)
+                .count();
+        System.out.println("Total de carros semi novos: " + totalDeCarrosSemiNovos);
+        System.out.print("Total de carros: " + carros.size());
     }
 //21. Escreva um algoritmo que leia os dados de “N” pessoas (nome, sexo, idade e saúde) e informe se está apta
 //ou não para cumprir o serviço militar obrigatório. Informe os totais;
@@ -306,8 +314,44 @@ public class Do16Ao28 {
 //calculado sobre o valor do veículo de acordo com o combustível (álcool – 25%, gasolina – 21% ou diesel
 //–14%). Com valor do veículo zero encerra entrada de dados. Informe total de desconto e total pago pelos
 //clientes;
+    static Do16Ao28_Carro cadastrarVeículo(Scanner input) {
+            System.out.print("Digite o preço do carro: ");
+            var preço = input.nextDouble();
+            if(preço <= 0) {
+                return null;
+            }
+            System.out.print("Digite o modelo do carro: ");
+            var modelo = input.next();
+            System.out.print("Digite o tipo de combustível do carro.\n(A para álcool, G para gasolina ou D para diesel): ");
+            var tipoDeCombustível = input.next();
+            return new Do16Ao28_Carro(tipoDeCombustível, modelo, preço);
+    }
     static void _27(Scanner input) {
-    
+        var continuar = true;
+        var carros = new ArrayList<Do16Ao28_Carro>();
+        do {
+            System.out.print(
+                    "Consecionária \"CARANGO\".\n\t1. Cadastrar veículo.\n\t2. Comprar veículo.\nOpção escolhida: "
+            );
+            switch(input.next()) {
+                case "1":
+                    var carro = cadastrarVeículo(input);
+                    if(carro != null) {
+                        carros.add(carro);
+                        break;
+                    }
+                    continuar = false;
+                    break;
+                case "2":
+                    Consumer<Do16Ao28_Carro> consume = a -> {
+                        System.out.print(a + "\n");
+                    };
+                    carros.stream().forEach(consume);
+                    break;
+                default: System.out.print("Não tem essa opção.\n");
+            }
+            if(continuar) continuar = doYouDesireToProceed(input);
+        } while(continuar);
     }
 //28. Escreva um algoritmo para uma empresa que decide dar um reajuste a seus 584 funcionários de acordo
 //com os seguintes critérios:
