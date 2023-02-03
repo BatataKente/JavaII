@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Do16Ao28 {
     public static void main(String[] args) {
         var input = new Scanner(System.in);
-        _20(input);
+        _27(input );
         input.close();
     }
-//16. Escreva um algoritmo que leia o nome e as três notas obtidas por um aluno durante o semestre. Calcular a
-//sua média (aritmética), informar o nome e sua menção aprovado (media >= 7), Reprovado (media <= 5) e
-//Recuperação (media entre 5.1 a 6.9);
+//16. Escreva um algoritmo que leia o nome e as trús notas obtidas por um aluno durante o semestre. Calcular a
+//sua múdia (aritmútica), informar o nome e sua menùúo aprovado (media >= 7), Reprovado (media <= 5) e
+//Recuperaùúo (media entre 5.1 a 6.9);
     static void _16(Scanner input) {
         System.out.print("Escreva o nome do aluno: ");
         var nome = input.nextLine();
@@ -33,7 +33,7 @@ public class Do16Ao28 {
             System.out.printf("média: %.2f, %s está reprovado.", media, nome);
         }
     }
-//17. Leia 80 números e ao final informar quantos número(s) est(á)ão no intervalo entre 10 (inclusive) e 150
+//17. Leia 80 números e ao final informar quantos número(s) est(ú)úo no intervalo entre 10 (inclusive) e 150
 //(inclusive);
     static void _17(Scanner input) {
         var números = new Integer[80];
@@ -47,21 +47,24 @@ public class Do16Ao28 {
                 .collect(Collectors.joining(", "));
         System.out.print("Os número(s) est(á)ão no intervalo entre 10 e 150 são: " + amostra);
     }
-//18. Faça um algoritmo que receba a idade de 75 pessoas e mostre mensagem informando “maior de idade” e
-//“menor de idade” para cada pessoa. Considere a idade a partir de 18 anos como maior de idade;
+//18. Faúa um algoritmo que receba a idade de 75 pessoas e mostre mensagem informando úmaior de idadeú e
+//úmenor de idadeú para cada pessoa. Considere a idade a partir de 18 anos como maior de idade;
     static void _18(Scanner input) {
-        var idades = new int[75];
+        _18(input, 75);
+    }
+    static void _18(Scanner input, int numberOfAges) {
+        var idades = new int[numberOfAges];
         for(int idade : idades) {
             System.out.print("Informe a sua idade: ");
             idade = input.nextInt();
             if(idade >= 18) {
-                System.out.print("\nMaior de idade.");
+                System.out.print("Maior de idade.\n");
             } else {
-                System.out.print("\nMenor de idade.");
+                System.out.print("Menor de idade.\n");
             }
         }
     }
-//19. Escreva um algoritmo que leia o nome e o sexo de 56 pessoas e informe o nome e se ela é homem ou
+//19. Escreva um algoritmo que leia o nome e o sexo de 56 pessoas e informe o nome e se ela ú homem ou
 //mulher. No final informe total de homens e de mulheres;
     static boolean encontrarPessoa(String nome, Do16Ao28_Pessoa[] pessoas) {
             for(Do16Ao28_Pessoa pessoa : pessoas) {
@@ -95,10 +98,7 @@ public class Do16Ao28 {
         char option;
         do {
             System.out.print(
-                    "Escolha uma opção:" + 
-                    "\n\t1. Pesquisar." + 
-                    "\n\t2. Quantidade de homens e mulheres." + 
-                    "\n\t3. Sair.\n"
+                    "Escolha uma opção:\n\t1. Pesquisar.\n\t2. Quantidade de homens e mulheres.\n\t3. Sair.\n"
             );
             option = input.next().charAt(0);
             if(option == '1') {
@@ -110,15 +110,15 @@ public class Do16Ao28 {
             } else if(option == '2') {
                 displayHomensAndMulheres(pessoas);
             } else if(option != '3') {
-                System.out.print("Não existe essa opção.\n");
+                System.out.print("Não existe essa opùúo.\n");
             }
         } while(option != '3');
     }
-//20. A concessionária de veículos “CARANGO VELHO” está vendendo os seus veículos com desconto. Faça
-//um algoritmo que calcule e exiba o valor do desconto e o valor a ser pago pelo cliente de vários carros. O
-//desconto deverá ser calculado de acordo com o ano do veículo. Até 2000 - 12% e acima de 2000 - 7%. O
-//sistema deverá perguntar se deseja continuar calculando desconto até que a resposta seja: “(N) Não”.
-//Informar total de carros com ano até 2000 e total geral;
+//20. A concessionúria de veúculos úCARANGO VELHOú estú vendendo os seus veúculos com desconto. Faúa
+//um algoritmo que calcule e exiba o valor do desconto e o valor a ser pago pelo cliente de vúrios carros. O
+//desconto deverú ser calculado de acordo com o ano do veúculo. Atú 2000 - 12% e acima de 2000 - 7%. O
+//sistema deverú perguntar se deseja continuar calculando desconto atú que a resposta seja: ú(N) Núoú.
+//Informar total de carros com ano atú 2000 e total geral;
     static void calculateAndShowValorDoAutomóvel(Do16Ao28_Carro carro) {
             if(carro.ano > 2000) {
                 var valorFinalDoAutomóvel = carro.preço*(1 - 0.07);
@@ -149,7 +149,7 @@ public class Do16Ao28 {
         var carros = new ArrayList<Do16Ao28_Carro>();
         do {
             System.out.print(
-                "Doncessionária de veículos \"CARANGO VELHO\". ;)\nDigite o valor do automóvel: "
+                "Concessionária de veículos \"CARANGO VELHO\". ;)\nDigite o valor do automóvel: "
             );
             float preço = input.nextFloat();
             System.out.print("Agora digite o ano do automóvel: ");
@@ -165,8 +165,8 @@ public class Do16Ao28 {
         System.out.println("Total de carros semi novos: " + totalDeCarrosSemiNovos);
         System.out.print("Total de carros: " + carros.size());
     }
-//21. Escreva um algoritmo que leia os dados de “N” pessoas (nome, sexo, idade e saúde) e informe se está apta
-//ou não para cumprir o serviço militar obrigatório. Informe os totais;
+//21. Escreva um algoritmo que leia os dados de úNú pessoas (nome, sexo, idade e saúde) e informe se estú apta
+//ou núo para cumprir o serviúo militar obrigatúrio. Informe os totais;
     static void _21(Scanner input) {
         var continuar = true;
         var pessoas = new ArrayList<Do16Ao28_Pessoa>();
@@ -190,44 +190,26 @@ public class Do16Ao28 {
                 .filter(a -> !a.aptoParaOServiçoMilitar())
                 .count();
         System.out.printf(
-                "\nDe todas as pessoas cadastradas %d " + 
-                "estão para o serviço militar e as demais %d não estão.",
+                "\nDe todas as pessoas cadastradas %d estão para o serviço militar e as demais %d não estão.",
                 númeroDeAptos, NúmeroDeInaptos
         );
     }
-//22. Faça um algoritmo que receba o preço de custo e o preço de venda de 40 produtos. Mostre como resultado
-//se houve lucro, prejuízo ou empate para cada produto. Informe o valor de custo de cada produto, o valor
-//de venda de cada produto, a média de preço de custo e do preço de venda;
-    static class Produto {
-        double preçoDeCusto;
-        double preçoDeVenda;
-        Supplier<Double> preçoFinal = () -> preçoDeVenda - preçoDeCusto;
-        void setPreçoDeCusto(double preçoDeCusto) {
-            this.preçoDeCusto = preçoDeCusto;
-        }
-        void setPreçoDeVenda(double preçoDeVenda) {
-            this.preçoDeVenda = preçoDeVenda;
-        }
-        String getStatus() {
-            return 
-                    "Preço de custo: " + preçoDeCusto + 
-                    "; Preço de venda: " + preçoDeVenda + 
-                    "; Preço final: " + preçoFinal.get();
-        }
-    }
+//22. Faúa um algoritmo que receba o preúo de custo e o preúo de venda de 40 produtos. Mostre como resultado
+//se houve lucro, prejuúzo ou empate para cada produto. Informe o valor de custo de cada produto, o valor
+//de venda de cada produto, a múdia de preúo de custo e do preúo de venda;
     static void _22(Scanner input) {
         _22(input, 40);
     }
     static void _22(Scanner input, int quantidadeDeProdutos) {
-        var produtos = new Produto[quantidadeDeProdutos];
+        var produtos = new Do16Ao28_Produto[quantidadeDeProdutos];
         for(int counter = 0; counter < produtos.length; counter++) {
-            produtos[counter] = new Produto();
+            produtos[counter] = new Do16Ao28_Produto();
             System.out.printf("Informe o preço de custo do produto %d: ", counter + 1);
             produtos[counter].setPreçoDeCusto(input.nextFloat());
             System.out.print("Informe também o preço de venda do produto: ");
             produtos[counter].setPreçoDeVenda(input.nextFloat());
         }
-        Consumer<Produto> consume = a -> System.out.print(a.getStatus() + "\n");
+        Consumer<Do16Ao28_Produto> consume = a -> System.out.print(a.getStatus() + "\n");
         Arrays.stream(produtos).forEach(consume);
         var médiaDosPreçosDeVenda = Arrays.stream(produtos)
                 .map(a -> a.preçoDeVenda)
@@ -242,15 +224,13 @@ public class Do16Ao28 {
                 .reduce(0.0, (a, b) -> a + b)
                 /produtos.length;
         System.out.printf(
-                "A média dos preços de custo é %.2f\n R$" +
-                " e a média dos preços de venda é %.2f\n R$" +
-                " e a média de lucro foi %.2f R$",
+                "A média dos preços de custo é %.2f\n R$ e a média dos preços de venda é %.2f\n R$ e a média de lucro foi %.2f R$",
                 médiaDosPreçosDeCusto, 
                 médiaDosPreçosDeVenda, 
                 médiaDeLucro
         );
     }
-//23. Faça um algoritmo que receba um número e mostre uma mensagem caso este número seja maior que 80,
+//23. Faúa um algoritmo que receba um número e mostre uma mensagem caso este número seja maior que 80,
 //menor que 25 ou igual a 40;
     static void _23(Scanner input) {
         System.out.print("Digite um número: ");
@@ -265,7 +245,7 @@ public class Do16Ao28 {
             System.out.print("O número é um número muito legal.");
         }
     }
-//24. Faça um algoritmo que receba “N” números e mostre positivo, negativo ou zero para cada número;
+//24. Faúa um algoritmo que receba úNú números e mostre positivo, negativo ou zero para cada número;
     static void _24(Scanner input) {
         var números = new ArrayList<Double>();
         var continuar = true;
@@ -276,19 +256,19 @@ public class Do16Ao28 {
         } while(continuar);
         Consumer<Double> consume = a -> {
             if(a == 0) {
-                System.out.print(a + ": o número é zero.");
+                System.out.print(a + ": o número ú zero.");
             } else if(a > 0) {
-                System.out.print(a + ": o número é positivo.");
+                System.out.print(a + ": o número ú positivo.");
             } else {
-                System.out.print(a + ": o número é negativo.");
+                System.out.print(a + ": o número ú negativo.");
             }
             System.out.println();
         };
         números.stream().forEach(consume);
     }
-//25. Faça um algoritmo que leia dois números e identifique se são iguais ou diferentes. Caso eles sejam iguais
-//imprima uma mensagem dizendo que eles são iguais. Caso sejam diferentes, informe qual número é o
-//maior, e uma mensagem que são diferentes;
+//25. Faúa um algoritmo que leia dois números e identifique se súo iguais ou diferentes. Caso eles sejam iguais
+//imprima uma mensagem dizendo que eles súo iguais. Caso sejam diferentes, informe qual número ú o
+//maior, e uma mensagem que súo diferentes;
     static void _25(Scanner input) {
         System.out.print("Informe o número A: ");
         var a = input.nextInt();
@@ -301,18 +281,18 @@ public class Do16Ao28 {
            System.out.print(a > b ? " A é maior que B." : " B é maior que A.");
         }
     }
-//26. Faça um algoritmo que leia um número de 1 a 5 e escreva por extenso. Caso o usuário digite um número
-//que não esteja neste intervalo, exibir a seguinte mensagem: número inválido;
+//26. Faúa um algoritmo que leia um número de 1 a 5 e escreva por extenso. Caso o usuúrio digite um número
+//que núo esteja neste intervalo, exibir a seguinte mensagem: número invúlido;
     static void _26(Scanner input) {
         System.out.print("Escreva um número de 1 a 5: ");
         var número = input.nextDouble();
         if(!(número >= 1 && número <= 5)) System.out.print("Número inválido");
-//        System.out.print(número >= 1 && número <= 5? "Número válido" : "Número inválido");
+//        System.out.print(número >= 1 && número <= 5? "Número vúlido" : "Número invúlido");
     }
-//27. A concessionária de veículos “CARANGO” está vendendo os seus veículos com desconto. Faça um
-//algoritmo que calcule e exiba o valor do desconto e o valor a ser pago pelo cliente. O desconto deverá ser 
-//calculado sobre o valor do veículo de acordo com o combustível (álcool – 25%, gasolina – 21% ou diesel
-//–14%). Com valor do veículo zero encerra entrada de dados. Informe total de desconto e total pago pelos
+//27. A concessionúria de veúculos úCARANGOú estú vendendo os seus veúculos com desconto. Faúa um
+//algoritmo que calcule e exiba o valor do desconto e o valor a ser pago pelo cliente. O desconto deverú ser 
+//calculado sobre o valor do veúculo de acordo com o combustúvel (úlcool ú 25%, gasolina ú 21% ou diesel
+//ú14%). Com valor do veúculo zero encerra entrada de dados. Informe total de desconto e total pago pelos
 //clientes;
     static Do16Ao28_Carro cadastrarVeículo(Scanner input) {
             System.out.print("Digite o preço do carro: ");
@@ -343,20 +323,57 @@ public class Do16Ao28 {
                     continuar = false;
                     break;
                 case "2":
-                    Consumer<Do16Ao28_Carro> consume = a -> {
-                        System.out.print(a + "\n");
-                    };
-                    carros.stream().forEach(consume);
+                    for(int counter = 0; counter < carros.size(); counter++) {
+                        System.out.print((counter + 1) + ": " + carros.get(counter) + "\n");
+                    }
+                    System.out.print("Digite o número do carro que você deseja comprar: ");
+                    var índiceDoCarroEscolhido = input.nextInt() - 1;
+                    if(índiceDoCarroEscolhido >= 0 && índiceDoCarroEscolhido < carros.size()) {
+                        var carroEscolhido = carros.get(índiceDoCarroEscolhido);
+                        carroEscolhido.setVendido(true);
+                        System.out.print("Comprado no valor " +  carroEscolhido.preçoComDesconto.get() + "\n");
+                    } else  {
+                        System.out.print("Carro não localizado.\n");
+                    }
                     break;
                 default: System.out.print("Não tem essa opção.\n");
             }
             if(continuar) continuar = doYouDesireToProceed(input);
         } while(continuar);
+        Consumer<Do16Ao28_Carro> consume = a -> {
+            System.out.print(a.getStatus() + "\n");
+        };
+        carros.stream().forEach(consume);
     }
-//28. Escreva um algoritmo para uma empresa que decide dar um reajuste a seus 584 funcionários de acordo
-//com os seguintes critérios:
-//a. 50% para aqueles que ganham menos do que três salários mínimos;
-//b. 20% para aqueles que ganham entre três até dez salários mínimos;
-//c. 15% para aqueles que ganham acima de dez até vinte salários mínimos;
-//d. 10% para os demais funcionários.
+//28. Escreva um algoritmo para uma empresa que decide dar um reajuste a seus 584 funcionúrios de acordo
+//com os seguintes critúrios:
+//a. 50% para aqueles que ganham menos do que trús salúrios múnimos;
+//b. 20% para aqueles que ganham entre trús atú dez salúrios múnimos;
+//c. 15% para aqueles que ganham acima de dez atú vinte salúrios múnimos;
+//d. 10% para os demais funcionúrios.
+    static Do16Ao28_Funcionário[] createFuncionários(int quantidadeDeFuncionúrios) {
+        var funcionários = new Do16Ao28_Funcionário[quantidadeDeFuncionúrios];
+        for(int counter = 0; counter < funcionários.length; counter++) {
+            funcionários[counter] = new Do16Ao28_Funcionário();
+        }
+        return funcionários;
+    }
+    static void _28() {
+        _28(584);
+    }
+    static void _28(int quantidadeDeFuncionários) {
+        var funcionários = createFuncionários(quantidadeDeFuncionários);
+        Function<Do16Ao28_Funcionário, Do16Ao28_Funcionário> mapper = a -> {
+            if(a.getSalário()< (1300*3)) {
+                a.reajustarSalário(1.5);
+            } else if(a.getSalário() < (1300*10)) {
+                a.reajustarSalário(1.2);
+            } else if(a.getSalário() < (1300*20)) {
+                a.reajustarSalário(1.15);
+            } else {
+                a.reajustarSalário(1.1);
+            }
+            return a;
+        };
+    }
 }
