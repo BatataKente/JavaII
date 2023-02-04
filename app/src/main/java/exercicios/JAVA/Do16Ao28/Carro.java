@@ -1,20 +1,20 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do16Ao28;
 
 import java.util.function.Supplier;
 
-public class Do16Ao28_Carro {
+public class Carro {
         int ano;
         double preço;
         final String tipoDeCombustível, modelo;
         final Supplier<Double> preçoComDesconto = () -> preço*getDesconto();
         private boolean vendido = false;
-        Do16Ao28_Carro (int ano, double preço) {
+        Carro (int ano, double preço) {
             this.ano = ano;
             this.preço = preço;
             this.tipoDeCombustível = "";
             this.modelo = "";
         }
-        Do16Ao28_Carro (String tipoDeCombustível, String modelo, double preço) {
+        Carro (String tipoDeCombustível, String modelo, double preço) {
             this.tipoDeCombustível = tipoDeCombustível;
             this.modelo = modelo;
             this.preço = preço;

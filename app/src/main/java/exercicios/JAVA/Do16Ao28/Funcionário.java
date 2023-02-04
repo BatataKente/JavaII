@@ -1,13 +1,13 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do16Ao28;
 
 import java.util.Random;
 
-class Do16Ao28_Funcionário {
+class Funcionário {
         private double salário;
-        Do16Ao28_Funcionário(double salário) {
+        Funcionário(double salário) {
             this.salário = salário;
         }
-        Do16Ao28_Funcionário() {
+        Funcionário() {
             this.salário = 1300 + (new Random().nextDouble() * ((1300*20) - 1300));
         }
         void reajustarSalário(double ajuste) {

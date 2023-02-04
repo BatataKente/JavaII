@@ -1,4 +1,4 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do16Ao28;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,8 +66,8 @@ public class Do16Ao28 {
     }
 //19. Escreva um algoritmo que leia o nome e o sexo de 56 pessoas e informe o nome e se ela é homem ou
 //mulher. No final informe total de homens e de mulheres;
-    static boolean encontrarPessoa(String nome, Do16Ao28_Pessoa[] pessoas) {
-            for(Do16Ao28_Pessoa pessoa : pessoas) {
+    static boolean encontrarPessoa(String nome, Pessoa[] pessoas) {
+            for(Pessoa pessoa : pessoas) {
                 if(pessoa.nome.equalsIgnoreCase(nome)) {
                     System.out.print("Pessoa encontrada: " + pessoa.getStatus() + "\n");
                     return true;
@@ -75,7 +75,7 @@ public class Do16Ao28 {
             }
             return false;
     }
-    static void displayHomensAndMulheres(Do16Ao28_Pessoa[] pessoas) {
+    static void displayHomensAndMulheres(Pessoa[] pessoas) {
             var homens = Arrays.stream(pessoas).filter(a -> a.getSexo().equals( "Masculino"));
             var mulheres = Arrays.stream(pessoas).filter(a -> a.getSexo().equals("Feminino"));
             System.out.print(
@@ -87,10 +87,10 @@ public class Do16Ao28 {
         _19(input, 56);
     }
     static void _19(Scanner input, int quantidadeDePessoas) {
-        var pessoas = new Do16Ao28_Pessoa[quantidadeDePessoas];
+        var pessoas = new Pessoa[quantidadeDePessoas];
         for(int counter = 0; counter < pessoas.length; counter++) {
             System.out.print("Digite o nome da pessoa: ");
-            pessoas[counter] = new Do16Ao28_Pessoa(input.next());
+            pessoas[counter] = new Pessoa(input.next());
             System.out.print("Digite o sexo da pessoa(M ou F): ");
             var sexo = input.next().charAt(0);
             pessoas[counter].setSexo(sexo);
@@ -119,7 +119,7 @@ public class Do16Ao28 {
 //desconto deverá ser calculado de acordo com o ano do veículo. Até 2000 - 12% e acima de 2000 - 7%. O
 //sistema deverá perguntar se deseja continuar calculando desconto até que a resposta seja: “(N) Não”.
 //Informar total de carros com ano até 2000 e total geral;
-    static void calculateAndShowValorDoAutomóvel(Do16Ao28_Carro carro) {
+    static void calculateAndShowValorDoAutomóvel(Carro carro) {
             if(carro.ano > 2000) {
                 var valorFinalDoAutomóvel = carro.preço*(1 - 0.07);
                 System.out.printf("O Automóvel com desconto custará %.2f R$\n", valorFinalDoAutomóvel);
@@ -130,7 +130,7 @@ public class Do16Ao28 {
                 System.out.print("O ano do automóvel deve ser um valor positivo.\n");
             }
     }
-    static boolean doYouDesireToProceed(Scanner input) {
+    public static boolean doYouDesireToProceed(Scanner input) {
             do {
                 System.out.print("Deseja continuar?(S para sim ou N para não) ");
                 var escolha = input.next();
@@ -146,7 +146,7 @@ public class Do16Ao28 {
     }
     static void _20(Scanner input) {
         var continuar = true;
-        var carros = new ArrayList<Do16Ao28_Carro>();
+        var carros = new ArrayList<Carro>();
         do {
             System.out.print(
                 "Concessionária de veículos \"CARANGO VELHO\". ;)\nDigite o valor do automóvel: "
@@ -154,7 +154,7 @@ public class Do16Ao28 {
             float preço = input.nextFloat();
             System.out.print("Agora digite o ano do automóvel: ");
             var ano = input.nextInt();
-            var carro = new Do16Ao28_Carro(ano, preço);
+            var carro = new Carro(ano, preço);
             calculateAndShowValorDoAutomóvel(carro);
             carros.add(carro);
             continuar = doYouDesireToProceed(input);
@@ -169,13 +169,13 @@ public class Do16Ao28 {
 //ou não para cumprir o serviço militar obrigatório. Informe os totais;
     static void _21(Scanner input) {
         var continuar = true;
-        var pessoas = new ArrayList<Do16Ao28_Pessoa>();
+        var pessoas = new ArrayList<Pessoa>();
         do {
             System.out.print("Digite o nome da pessoa: ");
             var nome = input.next();
             System.out.print("Digite a idade da pessoa: ");
             var idade = input.nextInt();
-            var pessoa = new Do16Ao28_Pessoa(nome, idade);
+            var pessoa = new Pessoa(nome, idade);
             System.out.print("Digite se a pessoa tem saúde(S para sim ou N para não): ");
             pessoa.setSaúde(input.next());
             pessoas.add(pessoa);
@@ -201,15 +201,15 @@ public class Do16Ao28 {
         _22(input, 40);
     }
     static void _22(Scanner input, int quantidadeDeProdutos) {
-        var produtos = new Do16Ao28_Produto[quantidadeDeProdutos];
+        var produtos = new Produto[quantidadeDeProdutos];
         for(int counter = 0; counter < produtos.length; counter++) {
-            produtos[counter] = new Do16Ao28_Produto();
+            produtos[counter] = new Produto();
             System.out.printf("Informe o preço de custo do produto %d: ", counter + 1);
             produtos[counter].setPreçoDeCusto(input.nextFloat());
             System.out.print("Informe também o preço de venda do produto: ");
             produtos[counter].setPreçoDeVenda(input.nextFloat());
         }
-        Consumer<Do16Ao28_Produto> consume = a -> System.out.print(a.getStatus() + "\n");
+        Consumer<Produto> consume = a -> System.out.print(a.getStatus() + "\n");
         Arrays.stream(produtos).forEach(consume);
         var médiaDosPreçosDeVenda = Arrays.stream(produtos)
                 .map(a -> a.preçoDeVenda)
@@ -294,7 +294,7 @@ public class Do16Ao28 {
 //calculado sobre o valor do veículo de acordo com o combustível (álcool – 25%, gasolina – 21% ou diesel
 //–14%). Com valor do veículo zero encerra entrada de dados. Informe total de desconto e total pago pelos
 //clientes;
-    static Do16Ao28_Carro cadastrarVeículo(Scanner input) {
+    static Carro cadastrarVeículo(Scanner input) {
             System.out.print("Digite o preço do carro: ");
             var preço = input.nextDouble();
             if(preço <= 0) {
@@ -304,11 +304,11 @@ public class Do16Ao28 {
             var modelo = input.next();
             System.out.print("Digite o tipo de combustível do carro.\n(A para álcool, G para gasolina ou D para diesel): ");
             var tipoDeCombustível = input.next();
-            return new Do16Ao28_Carro(tipoDeCombustível, modelo, preço);
+            return new Carro(tipoDeCombustível, modelo, preço);
     }
     static void _27(Scanner input) {
         var continuar = true;
-        var carros = new ArrayList<Do16Ao28_Carro>();
+        var carros = new ArrayList<Carro>();
         do {
             System.out.print(
                     "Consecionária \"CARANGO\".\n\t1. Cadastrar veículo.\n\t2. Comprar veículo.\nOpção escolhida: "
@@ -340,7 +340,7 @@ public class Do16Ao28 {
             }
             if(continuar) continuar = doYouDesireToProceed(input);
         } while(continuar);
-        Consumer<Do16Ao28_Carro> consume = a -> {
+        Consumer<Carro> consume = a -> {
             System.out.print(a.getStatus() + "\n");
         };
         carros.stream().forEach(consume);
@@ -351,10 +351,10 @@ public class Do16Ao28 {
 //b. 20% para aqueles que ganham entre três até dez salários mínimos;
 //c. 15% para aqueles que ganham acima de dez até vinte salários mínimos;
 //d. 10% para os demais funcionários.
-    static Do16Ao28_Funcionário[] createFuncionários(int quantidadeDeFuncionários) {
-        var funcionários = new Do16Ao28_Funcionário[quantidadeDeFuncionários];
+    static Funcionário[] createFuncionários(int quantidadeDeFuncionários) {
+        var funcionários = new Funcionário[quantidadeDeFuncionários];
         for(int counter = 0; counter < funcionários.length; counter++) {
-            funcionários[counter] = new Do16Ao28_Funcionário();
+            funcionários[counter] = new Funcionário();
         }
         return funcionários;
     }
@@ -363,7 +363,7 @@ public class Do16Ao28 {
     }
     static void _28(int quantidadeDeFuncionários) {
         var funcionários = createFuncionários(quantidadeDeFuncionários);
-        Function<Do16Ao28_Funcionário, Do16Ao28_Funcionário> mapper = a -> {
+        Function<Funcionário, Funcionário> mapper = a -> {
             if(a.getSalário()< (1300*3)) {
                 a.reajustarSalário(1.5);
             } else if(a.getSalário() < (1300*10)) {

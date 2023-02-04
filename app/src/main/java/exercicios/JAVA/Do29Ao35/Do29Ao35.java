@@ -1,5 +1,6 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do29Ao35;
 
+import exercicios.JAVA.do16Ao28.Do16Ao28;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -105,7 +106,7 @@ public class Do29Ao35 {
 //a. Professor Nível 1 R$12,00 por hora/aula;
 //b. Professor Nível 2 R$17,00 por hora/aula;
 //c. Professor Nível 3 R$25,00 por hora/aula.
-    static Do29Ao35_Professor cadastrarProfessor() {
+    static Professor cadastrarProfessor() {
             System.out.print("Digite os dados do professor para o cadastro.");
             System.out.print("\nNome: ");
             var nome = input.next();
@@ -113,9 +114,9 @@ public class Do29Ao35 {
             var nível = input.nextInt();
             System.out.print("Horas mensais de trabalho: ");
             var horasDeTrabalhoMensal = input.nextInt();
-            return new Do29Ao35_Professor(nome, nível, horasDeTrabalhoMensal);
+            return new Professor(nome, nível, horasDeTrabalhoMensal);
     }
-    static void encontrarProfessor(ArrayList<Do29Ao35_Professor> professores) {
+    static void encontrarProfessor(ArrayList<Professor> professores) {
             System.out.print("Digite o nome do professor: ");
             var nome = input.next();
             var professor = professores.stream()
@@ -129,7 +130,7 @@ public class Do29Ao35 {
     }
     static void _33() {
         var continuar = true;
-        var professores = new ArrayList<Do29Ao35_Professor>();
+        var professores = new ArrayList<Professor>();
         do {
             System.out.print("Escola \"APRENDER\" escolha uma opção:");
             System.out.print("\n\t1. Cadastrar professor.");
@@ -154,11 +155,11 @@ public class Do29Ao35 {
 //Apresentar mensagem “idade fora da faixa etária” quando for outro ano não contemplado;
     static void _34() {
         var continuar = true;
-        var nadadores = new ArrayList<Do29Ao35_Nadador>();
+        var nadadores = new ArrayList<Nadador>();
         do {
             System.out.print("Cadastrar nadador(a)(Faixa etária 5 - 25).\nNome: ");
             var nome = input.next();
-            var nadador = new Do29Ao35_Nadador(nome);
+            var nadador = new Nadador(nome);
             System.out.print("Idade: ");
             var idade = input.nextInt();
             if(nadador.setIdade(idade)) {

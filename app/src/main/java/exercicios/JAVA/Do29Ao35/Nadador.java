@@ -1,4 +1,4 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do29Ao35;
 
 //34. Elabore um algoritmo que, dada a idade de um nadador. Classifique-o em uma das seguintes categorias:
 //a. Infantil A = 5 - 7 anos;
@@ -7,11 +7,11 @@ package exercicios.JAVA;
 //d. Juvenil B = 14 - 17 anos;
 //e. Sênior = 18 - 25 anos.
 //Apresentar mensagem “idade fora da faixa etária” quando for outro ano não contemplado;
-public class Do29Ao35_Nadador {
+public class Nadador {
     private final String nome;
     private int idade;
     private String categoria;
-    public Do29Ao35_Nadador(String nome) {
+    public Nadador(String nome) {
         this.nome = nome;
     }
     @Override public String toString() {

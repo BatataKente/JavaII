@@ -1,9 +1,9 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do29Ao35;
 
-public class Do29Ao35_Professor {
+public class Professor {
     private String nome;
     private int nível, horasDeTrabalhoMensal;
-    public Do29Ao35_Professor(String nome, int nível, int horasDeTrabalhoMensal) {
+    public Professor(String nome, int nível, int horasDeTrabalhoMensal) {
         this.nome = nome;
         setNível(nível);
         this.horasDeTrabalhoMensal = horasDeTrabalhoMensal;
