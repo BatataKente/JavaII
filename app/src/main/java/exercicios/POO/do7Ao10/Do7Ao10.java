@@ -2,7 +2,7 @@ package exercicios.POO.do7Ao10;
 
 public class Do7Ao10 {
     public static void main(String[] args) {
-        _9();
+        _10();
     }
 //7. A fim de representar funcionários em uma empresa, crie uma classe chamada Funcionario que inclui as
 //três informações a seguir como atributos:
@@ -101,5 +101,11 @@ public class Do7Ao10 {
 //tempo falta para o jogador se aposentar. Para isso, considere que os jogadores da posição de defesa se
 //aposentam em média aos 40 anos, os jogadores de meio-campo aos 38 e os atacantes aos 35.
     static void _10() {
+        var player = new Jogador(
+                "Josicleison", new Data(10, 10, 2000), "Afeganistão", 'A'
+        );
+        System.out.println(player);
+        System.out.println(player.getAge());
+        System.out.println(player.timeToAposentar());
     }
 }
