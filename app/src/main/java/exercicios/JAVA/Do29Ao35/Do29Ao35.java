@@ -8,29 +8,37 @@ import java.util.Scanner;
 public class Do29Ao35 {
     private static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        _35();
+        _29();
         input.close();
     }
 //29. Faça um algoritmo que receba o número do mês e mostre o mês correspondente. Valide mês inválido;
+    public static String writeMonth(int month) {
+            switch(month) {
+                case 1: return "Janeiro.";
+                case 2: return "Fevereiro.";
+                case 3: return "Março.";
+                case 4: return "Abril.";
+                case 5: return "Maio.";
+                case 6: return "Junho.";
+                case 7: return "Julho.";
+                case 8: return "Agosto.";
+                case 9: return "Setembro.";
+                case 10: return "Outubro.";
+                case 11: return "Novembro.";
+                case 12: return "Dezembro.";
+                default: return "Falha, mês inválido.";
+            }
+    }
     static void _29() {
         var continuar = true;
         do {
             System.out.print("Informe o número do mês: ");
-            var mês = input.next();
-            switch(mês) {
-                case "1" -> System.out.print("Janeiro.\n");
-                case "2" -> System.out.print("Fevereiro.\n");
-                case "3" -> System.out.print("Março.\n");
-                case "4" -> System.out.print("Abril.\n");
-                case "5" -> System.out.print("Maio.\n");
-                case "6" -> System.out.print("Junho.\n");
-                case "7" -> System.out.print("Julho.\n");
-                case "8" -> System.out.print("Agosto.\n");
-                case "9" -> System.out.print("Setembro.\n");
-                case "10" -> System.out.print("Outubro.\n");
-                case "11" -> System.out.print("Novembro.\n");
-                case "12" -> System.out.print("Dezembro.\n");
-                default -> System.out.print("Falha, mês inválido.\n");
+            try {
+                var mês = input.nextInt();
+                System.out.print(writeMonth(mês) + "\n");
+            } catch(Exception error) {
+                System.out.println(error);
+                var mês = input.next();
             }
             continuar = Do16Ao28.doYouDesireToProceed(input);
         } while(continuar);
