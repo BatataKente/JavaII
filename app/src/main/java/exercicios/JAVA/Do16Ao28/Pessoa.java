@@ -1,18 +1,18 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do16Ao28;
 
 import java.util.function.Supplier;
 
-public class Do16Ao28_Pessoa {
+public class Pessoa {
         final String nome;
         private final int idade;
         private boolean saúde;
         private char sexo;
         Supplier<String> apto = () -> aptoParaOServiçoMilitar()? "Apto" : "Inapto";
-        Do16Ao28_Pessoa(String nome) {
+        Pessoa(String nome) {
             this.nome = nome;
             this.idade = 0;
         }
-        Do16Ao28_Pessoa(String nome, int idade) {
+        Pessoa(String nome, int idade) {
             this.nome = nome;
             this.idade = idade;
         }

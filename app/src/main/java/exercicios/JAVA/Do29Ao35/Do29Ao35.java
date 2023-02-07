@@ -1,5 +1,6 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do29Ao35;
 
+import exercicios.JAVA.do16Ao28.Do16Ao28;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -7,29 +8,37 @@ import java.util.Scanner;
 public class Do29Ao35 {
     private static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        _35();
+        _29();
         input.close();
     }
 //29. Faça um algoritmo que receba o número do mês e mostre o mês correspondente. Valide mês inválido;
+    public static String writeMonth(int month) {
+            switch(month) {
+                case 1: return "Janeiro.";
+                case 2: return "Fevereiro.";
+                case 3: return "Março.";
+                case 4: return "Abril.";
+                case 5: return "Maio.";
+                case 6: return "Junho.";
+                case 7: return "Julho.";
+                case 8: return "Agosto.";
+                case 9: return "Setembro.";
+                case 10: return "Outubro.";
+                case 11: return "Novembro.";
+                case 12: return "Dezembro.";
+                default: return "Falha, mês inválido.";
+            }
+    }
     static void _29() {
         var continuar = true;
         do {
             System.out.print("Informe o número do mês: ");
-            var mês = input.next();
-            switch(mês) {
-                case "1" -> System.out.print("Janeiro.\n");
-                case "2" -> System.out.print("Fevereiro.\n");
-                case "3" -> System.out.print("Março.\n");
-                case "4" -> System.out.print("Abril.\n");
-                case "5" -> System.out.print("Maio.\n");
-                case "6" -> System.out.print("Junho.\n");
-                case "7" -> System.out.print("Julho.\n");
-                case "8" -> System.out.print("Agosto.\n");
-                case "9" -> System.out.print("Setembro.\n");
-                case "10" -> System.out.print("Outubro.\n");
-                case "11" -> System.out.print("Novembro.\n");
-                case "12" -> System.out.print("Dezembro.\n");
-                default -> System.out.print("Falha, mês inválido.\n");
+            try {
+                var mês = input.nextInt();
+                System.out.print(writeMonth(mês) + "\n");
+            } catch(Exception error) {
+                System.out.println(error);
+                var mês = input.next();
             }
             continuar = Do16Ao28.doYouDesireToProceed(input);
         } while(continuar);
@@ -105,7 +114,7 @@ public class Do29Ao35 {
 //a. Professor Nível 1 R$12,00 por hora/aula;
 //b. Professor Nível 2 R$17,00 por hora/aula;
 //c. Professor Nível 3 R$25,00 por hora/aula.
-    static Do29Ao35_Professor cadastrarProfessor() {
+    static Professor cadastrarProfessor() {
             System.out.print("Digite os dados do professor para o cadastro.");
             System.out.print("\nNome: ");
             var nome = input.next();
@@ -113,9 +122,9 @@ public class Do29Ao35 {
             var nível = input.nextInt();
             System.out.print("Horas mensais de trabalho: ");
             var horasDeTrabalhoMensal = input.nextInt();
-            return new Do29Ao35_Professor(nome, nível, horasDeTrabalhoMensal);
+            return new Professor(nome, nível, horasDeTrabalhoMensal);
     }
-    static void encontrarProfessor(ArrayList<Do29Ao35_Professor> professores) {
+    static void encontrarProfessor(ArrayList<Professor> professores) {
             System.out.print("Digite o nome do professor: ");
             var nome = input.next();
             var professor = professores.stream()
@@ -129,7 +138,7 @@ public class Do29Ao35 {
     }
     static void _33() {
         var continuar = true;
-        var professores = new ArrayList<Do29Ao35_Professor>();
+        var professores = new ArrayList<Professor>();
         do {
             System.out.print("Escola \"APRENDER\" escolha uma opção:");
             System.out.print("\n\t1. Cadastrar professor.");
@@ -154,11 +163,11 @@ public class Do29Ao35 {
 //Apresentar mensagem “idade fora da faixa etária” quando for outro ano não contemplado;
     static void _34() {
         var continuar = true;
-        var nadadores = new ArrayList<Do29Ao35_Nadador>();
+        var nadadores = new ArrayList<Nadador>();
         do {
             System.out.print("Cadastrar nadador(a)(Faixa etária 5 - 25).\nNome: ");
             var nome = input.next();
-            var nadador = new Do29Ao35_Nadador(nome);
+            var nadador = new Nadador(nome);
             System.out.print("Idade: ");
             var idade = input.nextInt();
             if(nadador.setIdade(idade)) {

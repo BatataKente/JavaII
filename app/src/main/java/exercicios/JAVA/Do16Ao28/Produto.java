@@ -1,8 +1,8 @@
-package exercicios.JAVA;
+package exercicios.JAVA.do16Ao28;
 
 import java.util.function.Supplier;
 
-class Do16Ao28_Produto {
+class Produto {
         double preçoDeCusto;
         double preçoDeVenda;
         Supplier<Double> preçoFinal = () -> preçoDeVenda - preçoDeCusto;
