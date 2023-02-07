@@ -11,6 +11,10 @@ public class Data extends Date {
 //seguintes métodos:
 //a. Construtor: define a data que determinado objeto (através de parâmetro), este método verifica se a
 //data está correta, caso não esteja a data é configurada como 01/01/0001
+    static final Data NOW = new Data();
+    private Data() {
+        super(new Date().getTime());
+    }
     public Data(long date) {
         super(date);
     }
@@ -22,7 +26,7 @@ public class Data extends Date {
         super();
         setTime(day, month, year);
     }
-    private void setTime(int day, int month, int year) {
+    void setTime(int day, int month, int year) {
         try {var date = new SimpleDateFormat("dd-MM-yyyy")
                         .parse(String.format("%2d-%2d-%4d", day, month, year));
                 this.setTime(date.getTime());
@@ -99,5 +103,8 @@ public class Data extends Date {
 //mesmos valores de atributos e retorna sua referência pelo método
     Data getClone() {
         return new Data(getDia(), getMês(), getAno());
+    }
+    @Override public long getTime() {
+        return super.getTime();
     }
 }

@@ -64,11 +64,7 @@ public class Flight {
         var result = "";
         result += formatedVacancyString(0);
         for(int counter = 1; counter < occupiedVacancies.length; counter++) {
-            if(counter % 5 == 0) {
-                result += "\n";
-            } else {
-                result += " ";
-            }
+            result += (counter % 5 == 0? "\n" : " ");
             result += formatedVacancyString(counter);
         }
         return result;
