@@ -8,7 +8,7 @@ public class M {
         int totalDeAlunos = 10;
         while(totalDeAlunos > 0) {
             System.out.print("Qual é o nome do aluno? ");
-            String nomeDoAluno = input.nextLine();
+            String nomeDoAluno = input.next();
             System.out.print("Qual é a idade do aluno? ");
             int idadeDoAluno = input.nextInt();
             System.out.println(
