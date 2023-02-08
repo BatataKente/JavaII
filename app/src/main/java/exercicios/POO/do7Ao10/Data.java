@@ -11,7 +11,7 @@ public class Data extends Date {
 //seguintes métodos:
 //a. Construtor: define a data que determinado objeto (através de parâmetro), este método verifica se a
 //data está correta, caso não esteja a data é configurada como 01/01/0001
-    static final Data NOW = new Data();
+    public static final Data NOW = new Data();
     private Data() {
         super(new Date().getTime());
     }
@@ -26,7 +26,7 @@ public class Data extends Date {
         super();
         setTime(day, month, year);
     }
-    void setTime(int day, int month, int year) {
+    public void setTime(int day, int month, int year) {
         try {var date = new SimpleDateFormat("dd-MM-yyyy")
                         .parse(String.format("%2d-%2d-%4d", day, month, year));
                 this.setTime(date.getTime());
@@ -80,11 +80,11 @@ public class Data extends Date {
         calendar.setTime(this);
         return calendar;
     }
-    int getDia() {
+    public int getDia() {
         return getCalendar().get(Calendar.DAY_OF_MONTH);
     }
 //d. GetMes: retorna o mês da data
-    int getMês() {
+    public int getMês() {
         return getCalendar().get(Calendar.MONTH);
     }
 //e. GetMesExtenso: retorna o mês da data corrente por extenso
@@ -92,7 +92,7 @@ public class Data extends Date {
         return Do29Ao35.writeMonth(getCalendar().get(Calendar.MONTH));
     }
 //f. GetAno: retorna o ano da data
-    int getAno() {
+    public int getAno() {
         return getCalendar().get(Calendar.YEAR);
     }
 //g. IsBissexto: retorna verdadeiro se o ano da data corrente for bissexto e falso caso contrário
