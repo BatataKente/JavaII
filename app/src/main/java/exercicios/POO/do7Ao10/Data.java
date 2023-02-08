@@ -36,6 +36,10 @@ public class Data extends Date {
         }
     }
     private void setTime(int day, int month, int year, int hour, int minute) {
+        if(day > 31) return;
+        if(month > 12) return;
+        if(hour > 24) return;
+        if(minute > 60) return;
         try {var format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
                 var date = format.parse(
                         String.format(

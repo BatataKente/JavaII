@@ -1,4 +1,4 @@
-package exercicios.POO.do11Ao15;
+package exercicios.POO.do11Ao16;
 
 public abstract class CalculadoraCientífica extends Calculadora{
 //Utilizando o conceito de herança crie uma classe chamada calculadora cientifica que

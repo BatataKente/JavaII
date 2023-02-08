@@ -11,6 +11,9 @@ public class Pessoa {
     private Data birthDate;
     private float altura;
     public Pessoa() {}
+    public Pessoa(String name) {
+        this.setName(name);
+    }
     public Pessoa(String name, int idade, float altura) {
         this.setName(name);
         this.setIdade(idade);
