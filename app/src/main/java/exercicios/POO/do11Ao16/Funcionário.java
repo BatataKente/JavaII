@@ -1,4 +1,4 @@
-package exercicios.POO.do11Ao15;
+package exercicios.POO.do11Ao16;
 
 public class Funcionário {
 //Introduza na classe Funcionario uma variável de classe capaz de contabilizar o numero de funcionarios que 

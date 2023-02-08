@@ -1,4 +1,4 @@
-package exercicios.POO.do11Ao15;
+package exercicios.POO.do11Ao16;
 
 public class Fatura {
 //14. Crie uma classe em Java chamada Fatura para uma loja de suprimentos de informática. A classe deve

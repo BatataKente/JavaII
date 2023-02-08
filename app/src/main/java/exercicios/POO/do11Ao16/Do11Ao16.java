@@ -1,12 +1,11 @@
-package exercicios.POO.do11Ao15;
+package exercicios.POO.do11Ao16;
 
 import exercicios.POO.do1Ao6.Pessoa;
 import java.util.Arrays;
-import java.util.function.Consumer;
 
-public class Do11Ao15 {
+public class Do11Ao16 {
     public static void main(String[] args) {
-        _15();
+        _16();
     }
 //11. Crie uma classe chamada Ingresso, que possui um valor em reais e um me?todo imprimirValor. Crie uma
 //classe IngressoVIP, que herda de Ingresso e possui um valor adicional. Crie um me?
@@ -111,5 +110,25 @@ public class Do11Ao15 {
         System.out.println(Funcionário.getNúmeroMáximoDeFuncionários());
         josicleide = null;
         System.out.print(Funcionário.getNúmeroMáximoDeFuncionários());
+    }
+//16. Construa uma classe para representar um carro. O tanque de combustível do carro armazena no máximo 50
+//litros de gasolina. O carro consome 15 km/litro. Deve ser possível:
+//a. Abastecer o carro com certa quantidade de gasolina;
+//b. Mover o carro em uma determinada distância (medida em km);
+//c. Retornar a quantidade de combustível e a distância total percorrida.
+//No programa principal, crie 2 carros. Abasteça 20 litros no primeiro e 30 litros no segundo. Desloque o
+//primeiro em 200 km e o segundo em 400 km. Exiba na tela a distância percorrida e o total de combustível
+//restante para cada um.
+    static void _16() {
+        var gol = new Carro(15);
+        var corsa = new Carro(15);
+        gol.abastecer(20);
+        corsa.abastecer(30);
+        System.out.println(gol);
+        System.out.println(corsa + "\n");
+        gol.mover(200);
+        corsa.mover(400);
+        System.out.println(gol);
+        System.out.println(corsa);
     }
 }

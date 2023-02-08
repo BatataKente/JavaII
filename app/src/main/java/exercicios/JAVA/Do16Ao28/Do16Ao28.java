@@ -131,8 +131,11 @@ public class Do16Ao28 {
             }
     }
     public static boolean doYouDesireToProceed(Scanner input) {
+        return doYouDesireToProceed(input, "Deseja continuar?");
+    }
+    public static boolean doYouDesireToProceed(Scanner input, String outputQuestion) {
             do {
-                System.out.print("Deseja continuar?(S para sim ou N para não) ");
+                System.out.print(outputQuestion + "(S para sim ou N para não) ");
                 var escolha = input.next();
                 if(escolha.equalsIgnoreCase("n")) {
                     return false;
