@@ -9,8 +9,10 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -31,9 +33,14 @@ public class LoginPanel extends JPanel {
         loginTextField = createTextField("Login");
         passwordTextField = createTextField("Senha");
         signInButton = createSignInButton();
-        forgotPasswordLabel = new BLabel(
+        forgotPasswordLabel = createForgotPasswordLabel();
+    }
+    private BLabel createForgotPasswordLabel() {
+        final var forgotPasswordLabel = new BLabel(
                 "Esqueceu sua senha?", Font.PLAIN, 12, Color.BLACK
         );
+        forgotPasswordLabel.setVerticalAlignment(SwingConstants.BOTTOM);
+        return forgotPasswordLabel;
     }
     private JTextField createTextField(String title) {
         var textField = new JTextField();
@@ -65,16 +72,24 @@ public class LoginPanel extends JPanel {
                 .addComponent(
                         welcomeLabel
                 )
-                .addGap((int) (getHeight()* 0.1))
-                .addComponent(loginTextField)
                 .addGap((int) (getHeight()* 0.05))
-                .addComponent(passwordTextField)
-                .addGap((int) (getHeight()* 0.05))
-                .addComponent(signInButton)
                 .addComponent(
-                        forgotPasswordLabel, (int) (getHeight()* 0.1),
-                        (int) (getHeight()* 0.1), (int) (getHeight()* 0.1)
+                        loginTextField, (int) (getHeight()* 0.15),
+                        (int) (getHeight()* 0.15), (int) (getHeight()* 0.15)
                 )
+                .addGap((int) (getHeight()* 0.05))
+                .addComponent(
+                        passwordTextField, (int) (getHeight()* 0.15),
+                        (int) (getHeight()* 0.15), (int) (getHeight()* 0.15)
+                )
+                .addGap((int) (getHeight()* 0.05))
+                .addComponent(
+                        signInButton, GroupLayout.DEFAULT_SIZE,
+                            GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE
+                )
+                .addGap((int) (getHeight()* 0.15))
+                .addComponent(forgotPasswordLabel)
+                .addGap((int) (getHeight()* 0.05))
         );
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
