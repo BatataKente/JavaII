@@ -20,16 +20,16 @@ public class BLabel extends JLabel {
         setFont(font);
         setText(text);
     }
-    public BLabel(String text, int font, int size, Color color) {
+    public BLabel(String text, int style, int size, Color color) {
         setHorizontalAlignment(SwingConstants.CENTER);
         setForeground(color);
-        setFont(new Font("Segoe UI", font,  size));
+        setFont(Default.font(style, size));
         setText(text);
     }
     public BLabel(String text, int size) {
         setHorizontalAlignment(SwingConstants.CENTER);
         setForeground(Color.WHITE);
-        setFont(new Font("Segoe UI", Font.BOLD,  size));
+        setFont(Default.font(size));
         setText(text);
     }
     public BLabel() {
